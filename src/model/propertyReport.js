@@ -1,4 +1,4 @@
-const { Schema, default: mongoose } = require("mongoose");
+const {  default: mongoose } = require("mongoose");
 
 const propertyReportSchema = new mongoose.Schema({
   reportingDate: {

@@ -41,7 +41,10 @@ const ReportProperty = ({ propertyId, author }) => {
             body: JSON.stringify(formData),
         })
             .then((res) => res.json())
-            .then((data) => SuccessAlert(data.message));
+            .then((data) => {
+                closeModal();
+                SuccessAlert(data.message);
+            });
     };
     return (
         <li className='hover:bg-gray-200'>

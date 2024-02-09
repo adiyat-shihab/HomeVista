@@ -10,10 +10,11 @@ import "./propertyStyle.css";
 import Review from "@/components/Review/Review";
 import { CiMenuKebab } from "react-icons/ci";
 import ReportProperty from "@/components/ReportProperty/ReportProperty";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import ResponsiveSlider from "@/components/ResponsiveSlider/ResponsiveSlider";
 import useSWR from "swr";
 import { authContext } from "@/context/authContext/AuthProvider";
+import AddToFav from "@/components/AddToFav/AddToFav";
 
 // dummy data start
 const title = `Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas eum
@@ -34,6 +35,7 @@ const description =
 
 const Page = ({ params }) => {
   const { currentUser } = useContext(authContext);
+  const [favourite, setFavourite] = useState(0);
 
   const propertyId = params.propertyId;
   const url = `/api/property-rating/${propertyId}`;
@@ -91,6 +93,9 @@ const Page = ({ params }) => {
       <span className="divider"></span>
 
       {/* like, comments, favourite bar */}
+      <span className="-mb-10 text-gray-400">0 likes, 0 comments and {favourite} favourites</span>
+
+
       <div className=" my-4 gap-4  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-center text-xl">
         <button className=" btn bg-secondary hover:bg-blue-800 text-white text-xl flex items-center justify-center gap-2 py-2">
           <AiOutlineLike /> Like
@@ -99,9 +104,10 @@ const Page = ({ params }) => {
           <LiaComments />
           Comments
         </button>
-        <button className=" btn bg-secondary hover:bg-blue-800 text-white text-xl flex items-center justify-center gap-2 py-2">
-          <FaRegHeart /> Favourite
-        </button>
+
+        {/* Add to Favourite */}
+        <AddToFav setFavourite={setFavourite} userId={currentUser?.uid} propertyId={propertyId} />
+
         <button className="btn bg-secondary hover:bg-blue-800 text-white text-xl flex items-center justify-center gap-2 py-2">
           <FaCartPlus /> Buy/Rent
         </button>

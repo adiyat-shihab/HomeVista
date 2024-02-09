@@ -8,7 +8,7 @@ const Page =  () => {
   const url = "/api/properties";
   const {data, error, mutate} = useSWR(url, GetProperty);
   if(data){
-    return <ListProperty data={data} />;
+    return < ListProperty data={data} />;
   }
   return <h1>Loading...</h1>
 };
