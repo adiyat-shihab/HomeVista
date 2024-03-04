@@ -7,6 +7,7 @@ const nextConfig = {
         hostname: "daisyui.com",
       },
     ],
+    domains: ['i.ibb.co', 'lh3.googleusercontent.com', 'daisyui.com'], 
   },
 };
 

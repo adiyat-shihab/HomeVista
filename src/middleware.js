@@ -9,5 +9,9 @@ export async function middleware(request) {
 }
 
 export const config = {
-  matcher: ["/add-property"],
+  matcher: [
+    "/add-property",
+    "/properties/((?!$).*)",
+    "/dashboard/:path*",
+  ],
 };

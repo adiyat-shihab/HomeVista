@@ -13,11 +13,13 @@ const propertyReportSchema = new mongoose.Schema({
     },
   },
   propertyId: {
-    type: String,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "property",
     required: true,
   },
   reporterId: {
     type: String,
+    ref: "user",
     required: true
   },
   authorName: {

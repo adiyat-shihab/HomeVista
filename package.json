@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "@ant-design/nextjs-registry": "^1.0.0",
@@ -20,21 +22,31 @@
     "next": "^14.1.0",
     "query-string": "^8.1.0",
     "react": "^18",
+    "react-countup": "^6.5.0",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
-    "react-js-pagination": "^3.0.3",
+    "react-js-pagination": "^3.0.2",
     "react-modal": "^3.16.1",
     "react-responsive-carousel": "^3.2.23",
+    "react-slick": "^0.30.2",
     "react-star-ratings": "^2.3.0",
     "react-tabs": "^6.0.2",
+    "slick-carousel": "^1.8.1",
+    "socket.io-client": "^4.7.4",
+    "soket.io": "^0.0.1-security",
     "sweetalert2": "^11.6.13",
+    "swiper": "^11.0.7",
     "swr": "^2.2.4"
   },
   "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.2",
+    "@testing-library/react": "^14.2.1",
     "autoprefixer": "^10.0.1",
     "daisyui": "^4.6.0",
-    "eslint": "^8",
+    "eslint-config-airbnb": "^19.0.4",
     "eslint-config-next": "14.0.4",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "tailwindcss": "^3.3.0"
   }

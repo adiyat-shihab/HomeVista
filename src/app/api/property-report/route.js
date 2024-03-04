@@ -9,7 +9,6 @@ export async function PUT(req, res) {
 
     const query = { propertyId: data.propertyId, reporterId: data.reporterId };
     const isExist = await reportModel.findOne(query);
-
     if (isExist) {
       await reportModel.updateOne(query, {
         $set: {
@@ -22,7 +21,7 @@ export async function PUT(req, res) {
       return NextResponse.json({ message: "Report submitted" });
     }
   } catch (err) {
-    return NextResponse.json({success: false, message: "An error occured"});
+    return NextResponse.json({ success: false, message: "An error occured" });
   }
 }
 
@@ -31,15 +30,31 @@ export async function GET(req, res) {
     const propertyId = req.nextUrl.searchParams.get("propertyId");
     const reporterId = req.nextUrl.searchParams.get("reporterId");
 
-    const query = {propertyId, reporterId};
+    const query = { propertyId, reporterId };
 
     const isExist = await reportModel.findOne(query);
 
-    if(isExist){
+    if (isExist) {
       return NextResponse.json(isExist);
     }
 
     return NextResponse.json({ message: "Data not found" });
+  } catch (err) {
+    console.log(err);
+  }
+}
+export async function DELETE(req, res) {
+  try {
+    const propertyId = req.nextUrl.searchParams.get("propertyId");
+    const reporterId = req.nextUrl.searchParams.get("reporterId");
+
+    console.log(propertyId, reporterId);
+
+    const query = { propertyId, reporterId };
+    MongodbConnect();
+    const result = await reportModel.deleteOne(query);
+
+    return NextResponse.json(result);
   } catch (err) {
     console.log(err);
   }
